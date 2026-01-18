@@ -1,0 +1,53 @@
+"use client";
+
+import Image from "next/image";
+
+interface LogoProps {
+  className?: string;
+  size?: "sm" | "md" | "lg";
+  variant?: "full" | "icon";
+  theme?: "dark" | "light";
+}
+
+export default function Logo({
+  className = "",
+  size = "md",
+  variant = "full",
+  theme = "dark",
+}: LogoProps) {
+  const sizes = {
+    sm: { width: 120, height: 40 },
+    md: { width: 160, height: 50 },
+    lg: { width: 200, height: 60 },
+  };
+
+  const iconSizes = {
+    sm: { width: 32, height: 32 },
+    md: { width: 40, height: 40 },
+    lg: { width: 56, height: 56 },
+  };
+
+  const { width, height } = variant === "full" ? sizes[size] : iconSizes[size];
+
+  const logoSrc =
+    variant === "full"
+      ? theme === "dark"
+        ? "/vs-dark-full.jpg"
+        : "/vs-light-full.jpg"
+      : theme === "dark"
+      ? "/vs-dark.jpg"
+      : "/vs-light.jpg";
+
+  return (
+    <div className={`flex items-center ${className}`}>
+      <Image
+        src={logoSrc}
+        alt="Velox Studio"
+        width={width}
+        height={height}
+        className="object-contain"
+        priority
+      />
+    </div>
+  );
+}
