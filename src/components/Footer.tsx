@@ -144,7 +144,7 @@ export default function Footer() {
             © {currentYear} Velox Studio. All rights reserved.
           </p>
           <p className="text-velox-gray-600 text-sm flex items-center gap-1">
-            Built by Velox Studio
+            Built by Velox Studio Developer Team
           </p>
         </div>
       </div>
