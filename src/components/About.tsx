@@ -3,6 +3,8 @@
 import Image from "next/image";
 import RevealOnScroll from "./RevealOnScroll";
 
+const basePath = process.env.NODE_ENV === "production" ? "/velox_studio_website" : "";
+
 export default function About() {
   return (
     <section id="about" className="py-24 bg-velox-black">
@@ -28,7 +30,7 @@ export default function About() {
               <div className="aspect-square relative rounded-2xl overflow-hidden border border-velox-gray-800">
                 {/* Use the actual logo */}
                 <Image
-                  src="/vs-dark.png"
+                  src={`${basePath}/vs-dark.png`}
                   alt="Velox Studio Logo"
                   fill
                   className="object-cover"
