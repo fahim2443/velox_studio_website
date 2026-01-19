@@ -4,6 +4,10 @@ import { useState } from "react";
 import RevealOnScroll from "./RevealOnScroll";
 import MagneticButton from "./MagneticButton";
 
+const EMAILJS_SERVICE_ID = "service_dk4dm0o";
+const EMAILJS_TEMPLATE_ID = "template_7qiv8et";
+const EMAILJS_PUBLIC_KEY = "9Dp5pnekQXzVGJhcb";
+
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
@@ -11,13 +15,31 @@ export default function Contact() {
     type: "general",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission - integrate with your backend
-    console.log("Form submitted:", formData);
-    alert("Thank you for your message! We'll get back to you soon.");
-    setFormData({ name: "", email: "", type: "general", message: "" });
+    setIsSubmitting(true);
+    setError("");
+
+    try {
+      const emailjs = (await import("@emailjs/browser")).default;
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        formData,
+        EMAILJS_PUBLIC_KEY
+      );
+      setSubmitted(true);
+      setFormData({ name: "", email: "", type: "general", message: "" });
+    } catch (err) {
+      console.error("EmailJS error:", err);
+      setError("Failed to send message. Please try again or email us directly.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -105,6 +127,30 @@ export default function Contact() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                 </a>
+                {/* X (Twitter) */}
+                <a
+                  href="https://x.com/velox_studio_26?s=21"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-lg bg-velox-gray-800 flex items-center justify-center text-velox-gray-400 hover:text-cyan-electric hover:bg-velox-gray-700 transition-all"
+                  aria-label="X"
+                >
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                  </svg>
+                </a>
+                {/* TikTok */}
+                <a
+                  href="https://www.tiktok.com/@velox_studio_26?_r=1&_t=ZN-93C10hQJ0OU"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-lg bg-velox-gray-800 flex items-center justify-center text-velox-gray-400 hover:text-cyan-electric hover:bg-velox-gray-700 transition-all"
+                  aria-label="TikTok"
+                >
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z" />
+                  </svg>
+                </a>
               </div>
             </div>
             </div>
@@ -176,12 +222,44 @@ export default function Contact() {
                   />
                 </div>
 
+                {/* Error Message */}
+                {error && (
+                  <div className="p-4 bg-red-500/10 border border-red-500 rounded-lg text-red-400 text-center text-sm">
+                    {error}
+                  </div>
+                )}
+
+                {/* Success Message */}
+                {submitted && (
+                  <div className="p-4 bg-cyan-electric/10 border border-cyan-electric rounded-lg text-cyan-electric text-center text-sm">
+                    Thank you for your message! We&apos;ll get back to you soon.
+                  </div>
+                )}
+
                 <MagneticButton strength={0.2} className="w-full">
                   <button
                     type="submit"
-                    className="w-full px-6 py-4 bg-cyan-electric text-velox-black font-semibold rounded-lg hover:bg-cyan-400 transition-all duration-200 glow-cyan-hover"
+                    disabled={isSubmitting || submitted}
+                    className="w-full px-6 py-4 bg-cyan-electric text-velox-black font-semibold rounded-lg hover:bg-cyan-400 transition-all duration-200 glow-cyan-hover disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                   >
-                    Send Message
+                    {isSubmitting ? (
+                      <>
+                        <svg className="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        Sending...
+                      </>
+                    ) : submitted ? (
+                      <>
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        </svg>
+                        Message Sent
+                      </>
+                    ) : (
+                      "Send Message"
+                    )}
                   </button>
                 </MagneticButton>
               </form>

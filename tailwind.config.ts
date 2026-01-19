@@ -41,6 +41,8 @@ export default {
         "slide-up": "slideUp 0.5s ease-out",
         "slide-down": "slideDown 0.5s ease-out",
         "glow": "glow 2s ease-in-out infinite alternate",
+        "scroll-left": "scrollLeft 30s linear infinite",
+        "scroll-right": "scrollRight 30s linear infinite",
       },
       keyframes: {
         fadeIn: {
@@ -58,6 +60,14 @@ export default {
         glow: {
           "0%": { boxShadow: "0 0 20px rgba(0, 255, 255, 0.3)" },
           "100%": { boxShadow: "0 0 40px rgba(0, 255, 255, 0.6)" },
+        },
+        scrollLeft: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
+        scrollRight: {
+          "0%": { transform: "translateX(-50%)" },
+          "100%": { transform: "translateX(0)" },
         },
       },
     },

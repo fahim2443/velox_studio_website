@@ -6,15 +6,15 @@ import Logo from "./Logo";
 const footerLinks = {
   company: [
     { label: "About", href: "#about" },
-    { label: "Services", href: "#services" },
+    { label: "Services", href: "/services" },
     { label: "Partnership", href: "#partnership" },
     { label: "Contact", href: "#contact" },
   ],
   services: [
-    { label: "Web Development", href: "#services" },
-    { label: "Mobile Apps", href: "#services" },
-    { label: "UI/UX Design", href: "#services" },
-    { label: "Marketing", href: "#services" },
+    { label: "Web Development", href: "/services" },
+    { label: "Mobile Apps", href: "/services" },
+    { label: "UI/UX Design", href: "/services" },
+    { label: "Marketing", href: "/services" },
   ],
   legal: [
     { label: "Privacy Policy", href: "/privacy" },
@@ -57,6 +57,30 @@ export default function Footer() {
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </a>
+              {/* X (Twitter) */}
+              <a
+                href="https://x.com/velox_studio_26?s=21"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-lg bg-velox-gray-900 flex items-center justify-center text-velox-gray-400 hover:text-cyan-electric hover:bg-velox-gray-800 transition-all"
+                aria-label="X"
+              >
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                </svg>
+              </a>
+              {/* TikTok */}
+              <a
+                href="https://www.tiktok.com/@velox_studio_26?_r=1&_t=ZN-93C10hQJ0OU"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-lg bg-velox-gray-900 flex items-center justify-center text-velox-gray-400 hover:text-cyan-electric hover:bg-velox-gray-800 transition-all"
+                aria-label="TikTok"
+              >
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z" />
                 </svg>
               </a>
             </div>
@@ -119,8 +143,8 @@ export default function Footer() {
           <p className="text-velox-gray-500 text-sm">
             © {currentYear} Velox Studio. All rights reserved.
           </p>
-          <p className="text-velox-gray-600 text-sm">
-            Built with ❤️ by Velox Studio
+          <p className="text-velox-gray-600 text-sm flex items-center gap-1">
+            Built by Velox Studio
           </p>
         </div>
       </div>

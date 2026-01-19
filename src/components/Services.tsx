@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import RevealOnScroll from "./RevealOnScroll";
 
 const services = [
@@ -90,14 +91,15 @@ export default function Services() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
             <RevealOnScroll key={index} delay={index * 100}>
-              <div className="group p-6 rounded-2xl bg-velox-black border border-velox-gray-800 hover:border-cyan-electric/50 transition-all duration-300 hover:-translate-y-2 h-full">
-                {/* Icon */}
-                <div className="w-14 h-14 rounded-xl bg-velox-gray-800 flex items-center justify-center text-cyan-electric mb-5 group-hover:bg-cyan-electric/10 transition-colors">
-                  {service.icon}
-                </div>
+              <Link href="/services" className="block h-full">
+                <div className="group p-6 rounded-2xl bg-velox-black border border-velox-gray-800 hover:border-cyan-electric/50 transition-all duration-300 hover:-translate-y-2 h-full cursor-pointer">
+                  {/* Icon */}
+                  <div className="w-14 h-14 rounded-xl bg-velox-gray-800 flex items-center justify-center text-cyan-electric mb-5 group-hover:bg-cyan-electric/10 transition-colors">
+                    {service.icon}
+                  </div>
 
-                {/* Title */}
-                <h3 className="text-xl font-bold mb-3 group-hover:text-cyan-electric transition-colors">
+                  {/* Title */}
+                  <h3 className="text-xl font-bold mb-3 group-hover:text-cyan-electric transition-colors">
                   {service.title}
                 </h3>
 
@@ -118,6 +120,7 @@ export default function Services() {
                   ))}
                 </div>
               </div>
+              </Link>
             </RevealOnScroll>
           ))}
         </div>
@@ -125,15 +128,15 @@ export default function Services() {
         {/* CTA */}
         <RevealOnScroll delay={600}>
           <div className="text-center mt-12">
-            <a
-              href="#contact"
+            <Link
+              href="/services"
               className="inline-flex items-center gap-2 text-cyan-electric hover:text-cyan-400 font-medium transition-colors"
             >
-              Discuss Your Project
+              Request a Service
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
-            </a>
+            </Link>
           </div>
         </RevealOnScroll>
       </div>

@@ -7,7 +7,7 @@ import MagneticButton from "./MagneticButton";
 
 const navLinks = [
   { href: "#about", label: "About" },
-  { href: "#services", label: "Services" },
+  { href: "/services", label: "Services" },
   { href: "#partnership", label: "Partnership" },
   { href: "#contact", label: "Contact" },
 ];
@@ -37,7 +37,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <Logo size="sm" variant="full" theme="dark" />
+            <Logo size="md" variant="full" theme="dark" />
           </Link>
 
           {/* Desktop Navigation */}

@@ -32,11 +32,11 @@ export default function Logo({
   const logoSrc =
     variant === "full"
       ? theme === "dark"
-        ? "/vs-dark-full.jpg"
-        : "/vs-light-full.jpg"
+        ? "/vs-dark-full.png"
+        : "/vs-light-full.png"
       : theme === "dark"
-      ? "/vs-dark.jpg"
-      : "/vs-light.jpg";
+      ? "/vs-dark.png"
+      : "/vs-light.png";
 
   return (
     <div className={`flex items-center ${className}`}>
