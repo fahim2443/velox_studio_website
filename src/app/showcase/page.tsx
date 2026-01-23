@@ -41,7 +41,7 @@ const projects = [
     category: "Transportation",
     description: "Modern metro navigation and real-time transit tracking application for urban commuters.",
     image: "/Showcase/MetroX.jpg",
-    tags: ["Web App", "Transportation", "Maps"],
+    tags: ["Android App", "Transportation", "Travel"],
   },
 ];
 
