@@ -85,56 +85,53 @@ export default function ShowcasePage() {
           </div>
 
           {/* Projects Grid */}
-          <div className="space-y-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
               <div
                 key={index}
-                className={`flex flex-col ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-8 items-center`}
+                className="group rounded-2xl border border-velox-gray-800 bg-velox-gray-900/30 overflow-hidden hover:border-cyan-electric/50 transition-all duration-300"
               >
-                {/* Image(s) */}
-                <div className="flex-1 w-full">
+                {/* Image Container - Fixed Height */}
+                <div className="relative h-64 overflow-hidden bg-velox-gray-900">
                   {'images' in project ? (
-                    <div className="flex gap-4 justify-center">
+                    <div className="flex gap-2 justify-center items-center h-full p-4">
                       {project.images.map((img, imgIndex) => (
                         <div
                           key={imgIndex}
-                          className="relative rounded-2xl overflow-hidden border border-velox-gray-800 bg-velox-gray-900/50 hover:border-cyan-electric/50 transition-all duration-300 group"
+                          className="relative h-full w-auto"
                         >
                           <Image
                             src={`${basePath}${img}`}
                             alt={`${project.name} ${imgIndex + 1}`}
-                            width={280}
-                            height={560}
-                            className="object-cover group-hover:scale-105 transition-transform duration-500"
+                            width={120}
+                            height={240}
+                            className="object-contain h-full w-auto group-hover:scale-105 transition-transform duration-500"
                           />
                         </div>
                       ))}
                     </div>
                   ) : (
-                    <div className="relative rounded-2xl overflow-hidden border border-velox-gray-800 bg-velox-gray-900/50 hover:border-cyan-electric/50 transition-all duration-300 group">
-                      <Image
-                        src={`${basePath}${project.image}`}
-                        alt={project.name}
-                        width={800}
-                        height={500}
-                        className="object-cover w-full group-hover:scale-105 transition-transform duration-500"
-                      />
-                    </div>
+                    <Image
+                      src={`${basePath}${project.image}`}
+                      alt={project.name}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
                   )}
                 </div>
 
                 {/* Content */}
-                <div className="flex-1 space-y-4">
-                  <span className="text-cyan-electric text-sm font-medium">{project.category}</span>
-                  <h2 className="text-3xl font-bold text-white">{project.name}</h2>
-                  <p className="text-velox-gray-400 text-lg leading-relaxed">{project.description}</p>
+                <div className="p-6 space-y-3">
+                  <span className="text-cyan-electric text-xs font-medium uppercase tracking-wider">{project.category}</span>
+                  <h2 className="text-xl font-bold text-white">{project.name}</h2>
+                  <p className="text-velox-gray-400 text-sm leading-relaxed line-clamp-3">{project.description}</p>
                   
                   {/* Tags */}
                   <div className="flex flex-wrap gap-2 pt-2">
                     {project.tags.map((tag, tagIndex) => (
                       <span
                         key={tagIndex}
-                        className="px-3 py-1 text-sm bg-velox-gray-800 text-velox-gray-300 rounded-full border border-velox-gray-700"
+                        className="px-2 py-1 text-xs bg-velox-gray-800 text-velox-gray-300 rounded-full border border-velox-gray-700"
                       >
                         {tag}
                       </span>
