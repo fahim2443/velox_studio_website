@@ -98,14 +98,13 @@ export default function ShowcasePage() {
                       {project.images.map((img, imgIndex) => (
                         <div
                           key={imgIndex}
-                          className="relative h-full w-auto"
+                          className="relative h-full w-24 shrink-0"
                         >
                           <Image
                             src={`${basePath}${img}`}
                             alt={`${project.name} ${imgIndex + 1}`}
-                            width={120}
-                            height={240}
-                            className="object-contain h-full w-auto group-hover:scale-105 transition-transform duration-500"
+                            fill
+                            className="object-contain group-hover:scale-105 transition-transform duration-500"
                           />
                         </div>
                       ))}
