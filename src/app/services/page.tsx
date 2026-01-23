@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Logo from "@/components/Logo";
+import CustomCursor from "@/components/CustomCursor";
 
 // EmailJS configuration
 const EMAILJS_SERVICE_ID = "service_dk4dm0o";
@@ -96,8 +97,10 @@ export default function ServicesPage() {
   }
 
   return (
-    <div className="min-h-screen bg-velox-black">
-      {/* Header */}
+    <>
+      <CustomCursor />
+      <div className="min-h-screen bg-velox-black">
+        {/* Header */}
       <header className="border-b border-velox-gray-800">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex items-center justify-between">
           <Link href="/">
@@ -505,5 +508,6 @@ export default function ServicesPage() {
         </p>
       </main>
     </div>
+    </>
   );
 }

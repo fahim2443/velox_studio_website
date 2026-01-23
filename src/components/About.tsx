@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import RevealOnScroll from "./RevealOnScroll";
 
 const basePath = process.env.NODE_ENV === "production" ? "/velox_studio_website" : "";
@@ -87,6 +88,53 @@ export default function About() {
                     <p className="text-sm text-velox-gray-500">{value.desc}</p>
                   </div>
                 ))}
+              </div>
+
+              {/* Action Buttons */}
+              <div className="pt-4 flex flex-wrap gap-4">
+                {/* Meet the Team Button */}
+                <Link
+                  href="/team"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 px-6 py-3 bg-velox-gray-900 border border-velox-gray-700 rounded-lg hover:border-cyan-electric/50 hover:bg-velox-gray-800 transition-all group"
+                >
+                  <div className="flex -space-x-2">
+                    <div className="w-8 h-8 rounded-full border-2 border-velox-gray-900 overflow-hidden">
+                      <Image src={`${basePath}/Salma.png`} alt="Team" width={32} height={32} className="object-cover" />
+                    </div>
+                    <div className="w-8 h-8 rounded-full border-2 border-velox-gray-900 overflow-hidden">
+                      <Image src={`${basePath}/Rahber.jpg`} alt="Team" width={32} height={32} className="object-cover" />
+                    </div>
+                    <div className="w-8 h-8 rounded-full border-2 border-velox-gray-900 overflow-hidden">
+                      <Image src={`${basePath}/Sabbir.jpg`} alt="Team" width={32} height={32} className="object-cover" />
+                    </div>
+                  </div>
+                  <span className="text-white font-medium group-hover:text-cyan-electric transition-colors">
+                    Meet the Core Team
+                  </span>
+                  <svg className="w-4 h-4 text-velox-gray-400 group-hover:text-cyan-electric group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </Link>
+
+                {/* View Our Work Button */}
+                <Link
+                  href="/showcase"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 px-6 py-3 bg-cyan-electric/10 border border-cyan-electric/30 rounded-lg hover:border-cyan-electric hover:bg-cyan-electric/20 transition-all group"
+                >
+                  <svg className="w-5 h-5 text-cyan-electric" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  <span className="text-cyan-electric font-medium group-hover:text-white transition-colors">
+                    View Our Work
+                  </span>
+                  <svg className="w-4 h-4 text-cyan-electric group-hover:text-white group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </Link>
               </div>
             </div>
           </RevealOnScroll>
