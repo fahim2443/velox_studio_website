@@ -41,7 +41,7 @@ const projects = [
     category: "Transportation",
     description: "Modern metro navigation and real-time transit tracking application for urban commuters.",
     image: "/Showcase/MetroX.jpg",
-    tags: ["Android App", "Transportation", "Travel"],
+    tags: ["Android", "Transportation", "Travel"],
   },
 ];
 
@@ -93,7 +93,7 @@ export default function ShowcasePage() {
               >
                 {/* Image Container - Fixed Height */}
                 <div className="relative h-64 overflow-hidden bg-velox-gray-900">
-                  {'images' in project ? (
+                  {project.images ? (
                     <div className="flex gap-2 justify-center items-center h-full p-4">
                       {project.images.map((img, imgIndex) => (
                         <div
