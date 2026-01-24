@@ -5,8 +5,6 @@ import Link from "next/link";
 import Logo from "@/components/Logo";
 import CustomCursor from "@/components/CustomCursor";
 
-const basePath = process.env.NODE_ENV === "production" ? "/velox_studio_website" : "";
-
 const projects = [
   {
     name: "CryptoChart AI",
@@ -101,7 +99,7 @@ export default function ShowcasePage() {
                           className="relative h-full w-24 shrink-0"
                         >
                           <Image
-                            src={`${basePath}${img}`}
+                            src={`${img}`}
                             alt={`${project.name} ${imgIndex + 1}`}
                             fill
                             className="object-contain group-hover:scale-105 transition-transform duration-500"
@@ -111,7 +109,7 @@ export default function ShowcasePage() {
                     </div>
                   ) : (
                     <Image
-                      src={`${basePath}${project.image}`}
+                      src={`${project.image}`}
                       alt={project.name}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-500"

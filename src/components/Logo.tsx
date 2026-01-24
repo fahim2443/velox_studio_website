@@ -9,8 +9,6 @@ interface LogoProps {
   theme?: "dark" | "light";
 }
 
-const basePath = process.env.NODE_ENV === "production" ? "/velox_studio_website" : "";
-
 export default function Logo({
   className = "",
   size = "md",
@@ -40,7 +38,7 @@ export default function Logo({
       ? "/vs-dark.png"
       : "/vs-light.png";
 
-  const logoSrc = `${basePath}${logoFile}`;
+  const logoSrc = logoFile;
 
   return (
     <div className={`flex items-center ${className}`}>

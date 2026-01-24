@@ -5,8 +5,6 @@ import Link from "next/link";
 import Logo from "@/components/Logo";
 import CustomCursor from "@/components/CustomCursor";
 
-const basePath = process.env.NODE_ENV === "production" ? "/velox_studio_website" : "";
-
 const teamMembers = [
   {
     name: "Salma Lahmiri",
@@ -99,7 +97,7 @@ export default function TeamPage() {
               {/* Image Container */}
               <div className="relative h-72 overflow-hidden">
                 <Image
-                  src={`${basePath}${member.image}`}
+                  src={`${member.image}`}
                   alt={member.name}
                   fill
                   className="object-cover object-top group-hover:scale-105 transition-transform duration-500"

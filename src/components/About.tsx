@@ -4,8 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import RevealOnScroll from "./RevealOnScroll";
 
-const basePath = process.env.NODE_ENV === "production" ? "/velox_studio_website" : "";
-
 export default function About() {
   return (
     <section id="about" className="py-24 bg-velox-black">
@@ -31,7 +29,7 @@ export default function About() {
               <div className="aspect-square relative rounded-2xl overflow-hidden border border-velox-gray-800">
                 {/* Use the actual logo */}
                 <Image
-                  src={`${basePath}/vs-dark.png`}
+                  src="/vs-dark.png"
                   alt="Velox Studio Logo"
                   fill
                   className="object-cover"
@@ -101,13 +99,13 @@ export default function About() {
                 >
                   <div className="flex -space-x-2">
                     <div className="w-8 h-8 rounded-full border-2 border-velox-gray-900 overflow-hidden">
-                      <Image src={`${basePath}/Salma.png`} alt="Team" width={32} height={32} className="object-cover" />
+                      <Image src="/Salma.png" alt="Team" width={32} height={32} className="object-cover" />
                     </div>
                     <div className="w-8 h-8 rounded-full border-2 border-velox-gray-900 overflow-hidden">
-                      <Image src={`${basePath}/Rahber.jpg`} alt="Team" width={32} height={32} className="object-cover" />
+                      <Image src="/Rahber.jpg" alt="Team" width={32} height={32} className="object-cover" />
                     </div>
                     <div className="w-8 h-8 rounded-full border-2 border-velox-gray-900 overflow-hidden">
-                      <Image src={`${basePath}/Sabbir.jpg`} alt="Team" width={32} height={32} className="object-cover" />
+                      <Image src="/Sabbir.jpg" alt="Team" width={32} height={32} className="object-cover" />
                     </div>
                   </div>
                   <span className="text-white font-medium group-hover:text-cyan-electric transition-colors">
