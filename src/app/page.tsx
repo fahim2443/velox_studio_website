@@ -1,7 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
-import LogoSliderWrapper from "@/components/LogoSliderWrapper";
+// import LogoSliderWrapper from "@/components/LogoSliderWrapper"; // Commented out - demo logos
 import Services from "@/components/Services";
 import Partnership from "@/components/Partnership";
 import Contact from "@/components/Contact";
@@ -16,7 +16,7 @@ export default function Home() {
       <main>
         <Hero />
         <About />
-        <LogoSliderWrapper />
+        {/* <LogoSliderWrapper /> */} {/* Commented out - demo logos */}
         <Services />
         <Partnership />
         <Contact />
